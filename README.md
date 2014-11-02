@@ -26,7 +26,7 @@ The example code uses two third party libraries, DirectXTK and DirectXTex.
 
 Currently all projects are provided using Visual Studio 2013 solution files. I can provide other versions if anyone needs them, just send me an email.
 
-Nob 1, 2014 - The code has been pushed! I hope you find it useful, I will continue updating it I find bugs or receive bug reports.
+Nov 1, 2014 - The code has been pushed! I hope you find it useful, I will continue updating it I find bugs or receive bug reports.
 
 Oct 23, 2014 - The book is finally published! I'm preparing to commit the code, I am just going over it one last time to make sure I don't forget anything. 
 
