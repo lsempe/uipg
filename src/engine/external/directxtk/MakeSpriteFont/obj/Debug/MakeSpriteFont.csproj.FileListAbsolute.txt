@@ -1,0 +1,5 @@
+D:\Development\Books\UIPG\branches\test\engine\tools\bin\makespritefont\MakeSpriteFont.exe
+D:\Development\Books\UIPG\branches\test\engine\tools\bin\makespritefont\MakeSpriteFont.pdb
+D:\Development\Books\UIPG\branches\test\engine\external\directxtk\MakeSpriteFont\obj\Debug\MakeSpriteFont.csprojResolveAssemblyReference.cache
+D:\Development\Books\UIPG\branches\test\engine\external\directxtk\MakeSpriteFont\obj\Debug\MakeSpriteFont.exe
+D:\Development\Books\UIPG\branches\test\engine\external\directxtk\MakeSpriteFont\obj\Debug\MakeSpriteFont.pdb

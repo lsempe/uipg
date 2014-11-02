@@ -1,0 +1,13 @@
+
+@ECHO OFF
+SETLOCAL
+
+title UIPG - Command Window
+color 1F
+
+set CURDIR=%CD%
+SET UIPG_DIR=%CURDIR%
+
+ECHO UIPG_DIR=: %UIPG_DIR%
+
+%COMSPEC%

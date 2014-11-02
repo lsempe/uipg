@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Application">
+      <UniqueIdentifier>{8307c69f-cd6c-48cf-9226-41fa833cf077}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{c86af642-f189-4212-8e51-56d868e61b53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helpers">
+      <UniqueIdentifier>{5f45cd5f-1c76-49c2-9074-d44def7d0289}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{c6bf3de5-c665-42e0-b278-c64c15b1fe7d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="game.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="core\crc.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\assert.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\globals.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="helpers\string_helper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="input\input.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="timer.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="sys.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="engine.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="game.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="core\crc.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\globals.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="helpers\string_helper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="core\debug_messages.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="input\input.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="engine.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<ClInclude Include="unittests.h" />
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="unittest.example.cpp" />
+		<ClCompile Include="unittest.matrix.cpp" />
+		<ClCompile Include="unittest.rectangle.cpp" />
+		<ClCompile Include="unittest.vector.cpp" />
+		<ClCompile Include="unittest.viewport.cpp" />
+		<ClCompile Include="unittests.cpp" />
+	</ItemGroup>
+</Project>

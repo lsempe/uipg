@@ -1,0 +1,46 @@
+﻿Build started 11/1/2014 8:29:38 AM.
+     1>Project "D:\Development\Books\UIPG\branches\test\engine\external\directxtex\DirectXTex\DirectXTex_Desktop_2012.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W4 /WX- /O2 /Oi /GL /D _UNICODE /D UNICODE /D WIN32 /D NDEBUG /D PROFILE /D _LIB /D DXGI_1_2_FORMATS /D _WIN7_PLATFORM_UPDATE /D _WIN32_WINNT=0x0600 /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:fast /Zc:wchar_t /Zc:forScope /openmp /Yc"DirectXTexP.h" /Fp"x64\Profile\DirectXTex.pch" /Fo"x64\Profile\\" /Fd"x64\Profile\DirectXTex.pdb" /Gd /TP /errorReport:prompt  DirectXTexUtil.cpp
+         DirectXTexUtil.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W4 /WX- /O2 /Oi /GL /D _UNICODE /D UNICODE /D WIN32 /D NDEBUG /D PROFILE /D _LIB /D DXGI_1_2_FORMATS /D _WIN7_PLATFORM_UPDATE /D _WIN32_WINNT=0x0600 /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:fast /Zc:wchar_t /Zc:forScope /openmp /Yu"DirectXTexP.h" /Fp"x64\Profile\DirectXTex.pch" /Fo"x64\Profile\\" /Fd"x64\Profile\DirectXTex.pdb" /Gd /TP /errorReport:prompt  BC.cpp BC4BC5.cpp BC6HBC7.cpp DirectXTexCompress.cpp DirectXTexConvert.cpp DirectXTexD3D11.cpp DirectXTexDDS.cpp DirectXTexFlipRotate.cpp DirectXTexImage.cpp DirectXTexMipMaps.cpp DirectXTexMisc.cpp DirectXTexNormalMaps.cpp DirectXTexPMAlpha.cpp DirectXTexResize.cpp DirectXTexTGA.cpp DirectXTexWIC.cpp
+         BC.cpp
+         BC4BC5.cpp
+         BC6HBC7.cpp
+         DirectXTexCompress.cpp
+         DirectXTexConvert.cpp
+         DirectXTexD3D11.cpp
+         DirectXTexDDS.cpp
+         DirectXTexFlipRotate.cpp
+         DirectXTexImage.cpp
+         DirectXTexMipMaps.cpp
+         DirectXTexMisc.cpp
+         DirectXTexNormalMaps.cpp
+         DirectXTexPMAlpha.cpp
+         DirectXTexResize.cpp
+         DirectXTexTGA.cpp
+         DirectXTexWIC.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\Lib.exe /OUT:"D:\Development\Books\UIPG\branches\test\samples\x64\Profile\DirectXTex.lib" /NOLOGO /MACHINE:X64 /LTCG x64\Profile\BC.obj
+         x64\Profile\BC4BC5.obj
+         x64\Profile\BC6HBC7.obj
+         x64\Profile\DirectXTexCompress.obj
+         x64\Profile\DirectXTexConvert.obj
+         x64\Profile\DirectXTexD3D11.obj
+         x64\Profile\DirectXTexDDS.obj
+         x64\Profile\DirectXTexFlipRotate.obj
+         x64\Profile\DirectXTexImage.obj
+         x64\Profile\DirectXTexMipMaps.obj
+         x64\Profile\DirectXTexMisc.obj
+         x64\Profile\DirectXTexNormalMaps.obj
+         x64\Profile\DirectXTexPMAlpha.obj
+         x64\Profile\DirectXTexResize.obj
+         x64\Profile\DirectXTexTGA.obj
+         x64\Profile\DirectXTexUtil.obj
+         x64\Profile\DirectXTexWIC.obj
+         DirectXTex_Desktop_2012.vcxproj -> D:\Development\Books\UIPG\branches\test\samples\x64\Profile\DirectXTex.lib
+     1>Done Building Project "D:\Development\Books\UIPG\branches\test\engine\external\directxtex\DirectXTex\DirectXTex_Desktop_2012.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.89

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>../;$(SolutionDir)..\engine\engine;$(SolutionDir)..\engine\external\oculussdk\LibOVR\Include;$(SolutionDir)..\engine\external\directxtk\inc;$(SolutionDir)..\engine\external\directxtex;$(SolutionDir)..\external\poco-1.4.6\foundation\include;$(SolutionDir)..\external\poco-1.4.6\net\include;$(SolutionDir)..\external\poco-1.4.6\util\include;$(SolutionDir)..\external\poco-1.4.6\xml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\engine\external\oculussdk\LibOVR\Lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libovr.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>

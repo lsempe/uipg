@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="math.h" />
+    <ClInclude Include="intersection.h" />
+    <ClInclude Include="matrix.h" />
+    <ClInclude Include="point.h" />
+    <ClInclude Include="quaternion.h" />
+    <ClInclude Include="rectangle.h" />
+    <ClInclude Include="vector.h" />
+    <ClInclude Include="random.h" />
+    <ClInclude Include="ellipse.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="intersection.cpp" />
+    <ClCompile Include="math.cpp" />
+    <ClCompile Include="matrix.cpp" />
+    <ClCompile Include="point.cpp" />
+    <ClCompile Include="quaternion.cpp" />
+    <ClCompile Include="rectangle.cpp" />
+    <ClCompile Include="vector.cpp" />
+    <ClCompile Include="random.cpp" />
+  </ItemGroup>
+</Project>

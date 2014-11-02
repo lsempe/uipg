@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="crc.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="globals.h" />
+    <ClInclude Include="input.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="string_helper.h" />
+    <ClInclude Include="sys.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="timer.h" />
+    <ClInclude Include="event_handler.h" />
+    <ClInclude Include="runtime_variable.h" />
+    <ClInclude Include="trie.h" />
+    <ClInclude Include="path.h" />
+    <ClInclude Include="singleton.h" />
+    <ClInclude Include="file.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="crc.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="globals.cpp" />
+    <ClCompile Include="input.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="string_helper.cpp" />
+    <ClCompile Include="event_handler.cpp" />
+    <ClCompile Include="runtime_variable.cpp" />
+    <ClCompile Include="path.cpp" />
+    <ClCompile Include="trie.cpp" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="core.h" />
+    <ClInclude Include="element.h" />
+    <ClInclude Include="helpers.h" />
+    <ClInclude Include="control.h" />
+    <ClInclude Include="progressbar.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="label.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="textbox.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="button.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="slider.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="input_cursor.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="container.h" />
+    <ClInclude Include="console.h" />
+    <ClInclude Include="font_library.h" />
+    <ClInclude Include="caret.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="digits.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="listbox.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="interpolator.h" />
+    <ClInclude Include="heatmap.h" />
+    <ClInclude Include="align.h" />
+    <ClInclude Include="scrollbar.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="analog_gauge.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="menu.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="dropdown2.h">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="menu_3d.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="element.cpp" />
+    <ClCompile Include="helpers.cpp" />
+    <ClCompile Include="control.cpp" />
+    <ClCompile Include="container.cpp" />
+    <ClCompile Include="core.cpp" />
+    <ClCompile Include="console.cpp" />
+    <ClCompile Include="font_library.cpp" />
+    <ClCompile Include="interpolator.cpp" />
+    <ClCompile Include="button.cpp">
+      <Filter>controls</Filter>
+    </ClCompile>
+    <ClCompile Include="label.cpp">
+      <Filter>controls</Filter>
+    </ClCompile>
+    <ClCompile Include="listbox.cpp">
+      <Filter>controls</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.cpp">
+      <Filter>controls</Filter>
+    </ClCompile>
+    <ClCompile Include="textbox.cpp">
+      <Filter>controls</Filter>
+    </ClCompile>
+    <ClCompile Include="slider.cpp">
+      <Filter>controls</Filter>
+    </ClCompile>
+    <ClCompile Include="scrollbar.cpp">
+      <Filter>controls</Filter>
+    </ClCompile>
+    <ClCompile Include="progressbar.cpp">
+      <Filter>controls</Filter>
+    </ClCompile>
+    <ClCompile Include="input_cursor.cpp">
+      <Filter>controls</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="controls">
+      <UniqueIdentifier>{f12b4896-486b-40fe-8b28-7e122ea02094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utilities">
+      <UniqueIdentifier>{314d4dc7-6c18-417c-b427-25165ec4acb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="elements">
+      <UniqueIdentifier>{d5929dfc-da6a-4b78-8387-b917cd1f739e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="device.h" />
+    <ClInclude Include="device_direct3d.h">
+      <Filter>direct3d</Filter>
+    </ClInclude>
+    <ClInclude Include="color.h" />
+    <ClInclude Include="texture.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="texture_black.h" />
+    <ClInclude Include="texture_white.h" />
+    <ClInclude Include="spritesheet.h" />
+    <ClInclude Include="viewport.h" />
+    <ClInclude Include="shader.h" />
+    <ClInclude Include="ovr.h" />
+    <ClInclude Include="quad.h">
+      <Filter>primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="buffer.h">
+      <Filter>direct3d</Filter>
+    </ClInclude>
+    <ClInclude Include="vertex_types.h">
+      <Filter>primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h" />
+    <ClInclude Include="rendertarget.h" />
+    <ClInclude Include="camera_ovr.h" />
+    <ClInclude Include="cube.h">
+      <Filter>primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="gradient.h" />
+    <ClInclude Include="gradient_linear.h" />
+    <ClInclude Include="gradient_radial.h" />
+    <ClInclude Include="ellipsoid.h">
+      <Filter>primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="cone.h">
+      <Filter>primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="axes.h">
+      <Filter>primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="gradient_texture.h" />
+    <ClInclude Include="platform.h" />
+    <ClInclude Include="camera_rt.h" />
+    <ClInclude Include="text.h">
+      <Filter>primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="bsp_packer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="device.cpp" />
+    <ClCompile Include="device_direct3d.cpp">
+      <Filter>direct3d</Filter>
+    </ClCompile>
+    <ClCompile Include="color.cpp" />
+    <ClCompile Include="spritesheet.cpp" />
+    <ClCompile Include="shader.cpp" />
+    <ClCompile Include="viewport.cpp" />
+    <ClCompile Include="texture.cpp" />
+    <ClCompile Include="camera.cpp" />
+    <ClCompile Include="rendertarget.cpp" />
+    <ClCompile Include="camera_ovr.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="direct3d">
+      <UniqueIdentifier>{f3fca27c-f3c4-4b0c-a82d-7a1ebe244211}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{39a99cae-dec1-4a8b-a817-532978ea0277}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\compiled">
+      <UniqueIdentifier>{fcdf428b-174d-44ee-983b-44d71c7343eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="primitives">
+      <UniqueIdentifier>{922450f8-ce98-4e56-a1cd-156b05ef2cd9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="color.inl" />
+    <None Include="shaders\ovr.fx">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\CompileShaders.cmd">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\Compiled\ovr_DistortionCorrectionPixelShader.inc">
+      <Filter>shaders\compiled</Filter>
+    </None>
+    <None Include="shaders\Compiled\ovr_OVR_VertexShader.inc">
+      <Filter>shaders\compiled</Filter>
+    </None>
+    <None Include="shaders\ps_solid.fx">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\vs_standard.fx">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\Compiled\ps_solid_main.inc">
+      <Filter>shaders\compiled</Filter>
+    </None>
+    <None Include="shaders\Compiled\vs_standard_main.inc">
+      <Filter>shaders\compiled</Filter>
+    </None>
+  </ItemGroup>
+</Project>

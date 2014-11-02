@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{d8d303ef-602e-4e49-a73f-8933b288cca9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game">
+      <UniqueIdentifier>{f30a94fe-4007-42c1-9a9c-500303d0f901}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ui">
+      <UniqueIdentifier>{3fe45a4f-afa9-47c6-b74a-2e9fdc156117}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ui\elements">
+      <UniqueIdentifier>{b5793169-dba3-4c47-a314-f8d7f048924d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="example_game.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="health.h">
+      <Filter>ui\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="ui.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="compass.h">
+      <Filter>ui\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="world.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="damage_indicator.h">
+      <Filter>ui\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="world_indicator.h">
+      <Filter>ui\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="analog_gauge.h" />
+    <ClInclude Include="minimap.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="example_game.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="health.cpp">
+      <Filter>ui\elements</Filter>
+    </ClCompile>
+    <ClCompile Include="compass.cpp">
+      <Filter>ui\elements</Filter>
+    </ClCompile>
+    <ClCompile Include="damage_indicator.cpp">
+      <Filter>ui\elements</Filter>
+    </ClCompile>
+    <ClCompile Include="world_indicator.cpp">
+      <Filter>ui\elements</Filter>
+    </ClCompile>
+    <ClCompile Include="minimap.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>game\Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>game\Resource Files</Filter>
+    </Image>
+    <Image Include="game.ico">
+      <Filter>game\Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

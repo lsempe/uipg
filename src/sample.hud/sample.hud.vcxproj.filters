@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="world.cpp" />
+    <ClCompile Include="player.cpp" />
+    <ClCompile Include="entity.cpp" />
+    <ClCompile Include="hudsample.cpp" />
+    <ClCompile Include="hud.cpp" />
+    <ClCompile Include="minimap.cpp">
+      <Filter>elements</Filter>
+    </ClCompile>
+    <ClCompile Include="positional.cpp">
+      <Filter>elements</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="world.h" />
+    <ClInclude Include="player.h" />
+    <ClInclude Include="entity.h" />
+    <ClInclude Include="hudsample.h" />
+    <ClInclude Include="hud.h" />
+    <ClInclude Include="minimap.h">
+      <Filter>elements</Filter>
+    </ClInclude>
+    <ClInclude Include="positional.h">
+      <Filter>elements</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{5691e5c2-c467-4938-89e6-e0cbdeba2e9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="elements">
+      <UniqueIdentifier>{9010b71b-70b4-4a14-81bc-2d0ab27e5448}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="sample.hud.rc" />
+  </ItemGroup>
+</Project>
