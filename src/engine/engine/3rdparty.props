@@ -5,11 +5,11 @@
   <PropertyGroup />
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>../;$(SolutionDir)..\engine\engine;$(SolutionDir)..\engine\external\oculussdk\LibOVR\Include;$(SolutionDir)..\engine\external\directxtk\inc;$(SolutionDir)..\engine\external\directxtex;$(SolutionDir)..\external\poco-1.4.6\foundation\include;$(SolutionDir)..\external\poco-1.4.6\net\include;$(SolutionDir)..\external\poco-1.4.6\util\include;$(SolutionDir)..\external\poco-1.4.6\xml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../;$(SolutionDir)..\engine\engine;$(SolutionDir)..\engine\external\directxtk\inc;$(SolutionDir)..\engine\external\directxtex;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\engine\external\oculussdk\LibOVR\Lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libovr.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup />

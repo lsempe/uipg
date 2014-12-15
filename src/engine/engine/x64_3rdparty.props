@@ -5,11 +5,11 @@
   <PropertyGroup />
   <ItemDefinitionGroup>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\engine\external\oculussdk\LibOVR\Lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ClCompile>
-      <AdditionalIncludeDirectories>../;$(SolutionDir)..\engine\engine;$(SolutionDir)..\engine\external\oculussdk\LibOVR\Include;$(SolutionDir)..\engine\external\directxtk\inc;$(SolutionDir)..\engine\external\directxtex;$(SolutionDir)..\engine\external\poco-1.4.6\foundation\include;$(SolutionDir)..\engine\external\poco-1.4.6\net\include;$(SolutionDir)..\engine\external\poco-1.4.6\util\include;$(SolutionDir)..\engine\external\poco-1.4.6\xml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../;$(SolutionDir)..\engine\engine;$(SolutionDir)..\engine\external\directxtk\inc;$(SolutionDir)..\engine\external\directxtex;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup />

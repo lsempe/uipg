@@ -66,7 +66,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\..;$(SolutionDir);..;..\..\external\poco-1.4.6\foundation\include;..\..\external\poco-1.4.6\net\include;..\..\external\poco-1.4.6\util\include;..\..\external\poco-1.4.6\xml\include;..\..\external\oculussdk\LibOVR\Include;..\..\external\directxtk\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\..;$(SolutionDir);..\..\external\directxtk\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -80,7 +80,7 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\..;$(SolutionDir);..;..\..\external\poco-1.4.6\foundation\include;..\..\external\poco-1.4.6\net\include;..\..\external\poco-1.4.6\util\include;..\..\external\poco-1.4.6\xml\include;..\..\external\oculussdk\LibOVR\Include;..\..\external\directxtk\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\..;$(SolutionDir);..\..\external\directxtk\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Lib>
       <OutputFile>$(OutDir)engine_test.core.lib</OutputFile>
@@ -94,7 +94,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\..;$(SolutionDir);..;..\..\external\poco-1.4.6\foundation\include;..\..\external\poco-1.4.6\net\include;..\..\external\poco-1.4.6\util\include;..\..\external\poco-1.4.6\xml\include;..\..\external\oculussdk\LibOVR\Include;..\..\external\directxtk\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\..;$(SolutionDir);..\..\external\directxtk\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
@@ -108,7 +108,7 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\..;$(SolutionDir);..;..\..\external\poco-1.4.6\foundation\include;..\..\external\poco-1.4.6\net\include;..\..\external\poco-1.4.6\util\include;..\..\external\poco-1.4.6\xml\include;..\..\external\oculussdk\LibOVR\Include;..\..\external\directxtk\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\..;$(SolutionDir);..;..\..\external\directxtk\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Lib>
       <OutputFile>$(OutDir)engine_test.core.lib</OutputFile>
@@ -124,7 +124,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Final|Win32'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\..;$(SolutionDir);..;..\..\external\poco-1.4.6\foundation\include;..\..\external\poco-1.4.6\net\include;..\..\external\poco-1.4.6\util\include;..\..\external\poco-1.4.6\xml\include;..\..\external\oculussdk\LibOVR\Include;..\..\external\directxtk\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\..;$(SolutionDir);..;..\..\external\directxtk\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>FINAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
@@ -139,7 +139,7 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>FINAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\..;$(SolutionDir);..;..\..\external\poco-1.4.6\foundation\include;..\..\external\poco-1.4.6\net\include;..\..\external\poco-1.4.6\util\include;..\..\external\poco-1.4.6\xml\include;..\..\external\oculussdk\LibOVR\Include;..\..\external\directxtk\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\..;$(SolutionDir);..\..\external\directxtk\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Lib>
       <OutputFile>$(OutDir)engine_test.core.lib</OutputFile>

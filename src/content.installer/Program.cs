@@ -35,9 +35,16 @@ namespace content.installer
 
                     Console.Write(".");
 
-                    File.Copy(file, target, true);
+                    try
+                    {
+                        File.Copy(file, target, true);
 
-                    Console.WriteLine("Copied {0}", target);
+                        Console.WriteLine("Copied {0}", target);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Failed to copy {0}", target);
+                    }
                 }
             }
         }
