@@ -7,6 +7,12 @@
     <ClCompile>
       <AdditionalIncludeDirectories>../;$(SolutionDir)..\engine\engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <PostBuildEvent>
+      <Command>$(SolutionDir)..\content.installer\bin\content.installer.exe $(SolutionDir)..\content.installer\bin\content $(OutDir)</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Installing content...</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup />
 </Project>
