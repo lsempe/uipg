@@ -65,7 +65,10 @@ namespace ui
 	{
 		control::Update(deltaTime);
 
-		m_sprite->Update(deltaTime);
+		if (m_sprite)
+		{
+			m_sprite->Update(deltaTime);
+		}
 	}
 
 	void input_cursor::Draw()
