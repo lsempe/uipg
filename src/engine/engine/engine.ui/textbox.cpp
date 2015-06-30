@@ -22,7 +22,7 @@ namespace ui
 
 		math::vector2 inputTextSize = (math::vector2)m_font->MeasureString(m_text.c_str());
 		m_caret.SetPosition(m_rectangle.Left() + inputTextSize.x() + 4.f, m_rectangle.Top() + (m_font->GetLineSpacing() * 0.1f) );
-		m_caret.SetSize(2.f, m_font->GetLineSpacing() * 0.8f);
+		m_caret.SetSize(2.f, m_font->GetLineSpacing() * 0.98f);
 	}
 
 	void textbox::Update(float deltaTime)

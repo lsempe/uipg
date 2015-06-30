@@ -2,6 +2,12 @@
 
 #include "control.h"
 
+namespace render
+{
+	class spritesheet;
+	class sprite;
+}
+
 namespace ui
 {
 
@@ -10,6 +16,7 @@ namespace ui
 	public:
 
 		progress_bar(std::shared_ptr<core_ui> core, const std::shared_ptr<render::platform::font> font, const std::shared_ptr<render::platform::sprite_batch>& spriteBatch);
+		void Load(const std::wstring& path);
 
 		void SetMaximum(float maximum);
 
@@ -19,12 +26,18 @@ namespace ui
 
 		void SetValue(float value);
 
+		void Update(float deltaTime) override;
+
+		void Draw(const control&);
+
 	protected:
 
 		float m_maximum;
 		float m_value;
 
 		std::unique_ptr<render::texture> m_texture;
+		std::unique_ptr<render::spritesheet> m_spriteSheet;
+		std::shared_ptr<render::sprite> m_sprite;
 
 		virtual void InternalDraw(const render::camera& camera);
 

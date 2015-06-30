@@ -8,9 +8,6 @@ namespace ui
 		: control(core, font, spriteBatch)
 		, m_state(Default)
 	{
-		//m_spriteSheet = std::unique_ptr<render::spritesheet>(new render::spritesheet(core->GetDevice(), spritePath
-		m_colors[Default] = render::color::BLUE;
-		m_colors[Pressed] = render::color::GREEN;
 	}
 
 	bool button::HandleInput(float deltaTime, const input::input_state& inputState)
@@ -48,11 +45,6 @@ namespace ui
 
 	void button::Update(float deltaTime)
 	{
-		if  ( m_spriteSheet != nullptr )
-		{
-			//m_spriteSheet->Update(deltaTime);
-		}
-
 		if ( m_sprite != nullptr )
 		{
 			m_sprite->Update(deltaTime);
@@ -65,18 +57,12 @@ namespace ui
 	{
 		UNREFERENCED(camera);
 
-		if ( m_spriteSheet != nullptr )
+		m_spriteBatch->End();
+		if ( m_sprite )
 		{
-			//m_spriteSheet->Draw(L"default", 0, m_rectangle.Position());
-//			m_spriteSheet->Draw(m_rectangle.Position().x(), m_rectangle.Position().y(), render::color::WHITE, 0.f, math::vector2::Zero);
-
-			m_sprite->Draw(m_rectangle.Position());
+			m_sprite->Draw(m_rectangle.Position(), render::color::WHITE, 0.f, math::vector2::Zero, math::rectangle::Zero, m_rectangle.Size() );
 		}
-		else
-		{
-			render::color color = m_colors[m_state];
-			m_spriteBatch->Draw(*m_core->GetWhiteTexture()->GetView(), m_rectangle, nullptr, color);
-		}
+		m_spriteBatch->Begin(DirectX::SpriteSortMode_Deferred);
 
 		if (m_font != nullptr && m_showText)
 		{
@@ -90,13 +76,6 @@ namespace ui
 		
 			m_font->DrawString(m_spriteBatch.get(), m_text.c_str(), textRectangle.Position(), m_foregroundColor);
 		}
-
-		
-		//m_spriteBatch->Draw(m_textures[Default]->GetView(), rc, nullptr, m_backgroundColor);
-
-		//m_spriteBatch->Draw(m_textures[Pressed]->GetView(), rc, nullptr, m_backgroundColor);
-
-		//m_spriteBatch->Draw(m_textures[Selected]->GetView(), rc, nullptr, m_backgroundColor);
 
 	}
 
@@ -113,34 +92,27 @@ namespace ui
 		//m_rectangle.Inflate(4.f, 4.f);
 	}
 
-	
-
-	std::shared_ptr<render::sprite> m_sprite;
-
-	void button::Load(const wchar_t* spritePath, int frameWidth, int frameHeight)
+	void button::Load(const std::wstring& path)
 	{
-		SetSize(math::vector2(frameWidth, frameHeight), ui::control::Pixels );
-		m_spriteSheet = std::unique_ptr<render::spritesheet>(new render::spritesheet(m_core->GetDevice(), spritePath));
+		m_spriteSheet = std::unique_ptr<render::spritesheet>(new render::spritesheet(m_core->GetDevice(), path));
 		
 		size_t defaultAnimID;		
 		auto& defaultAnim = m_spriteSheet->CreateAnimation(L"default", defaultAnimID);
-		defaultAnim.AddFrame(math::rectangle(0,0,200,200), 0.33f);
-		defaultAnim.AddFrame(math::rectangle(200,0,200,200), 0.33f);
-		defaultAnim.AddFrame(math::rectangle(400,0,200,200), 0.33f);
-		defaultAnim.AddFrame(math::rectangle(600,0,200,200), 0.33f);
-		defaultAnim.AddFrame(math::rectangle(800,0,200,200), 0.33f);
-		defaultAnim.Loop() = true;
+		defaultAnim.AddFrame(math::rectangle(0,0,190,44), 0.f);
+		//defaultAnim.AddFrame(math::rectangle(0,96,186,48), 0.33f);
+		//defaultAnim.AddFrame(math::rectangle(0,144,186,48), 0.33f);
+		//defaultAnim.AddFrame(math::rectangle(0,192,186,48), 0.33f);
+		defaultAnim.Loop() = false;
 		
 		size_t pressedAnimID;
 		auto& pressedAnim = m_spriteSheet->CreateAnimation(L"pressed", pressedAnimID);
-		pressedAnim.AddFrame(math::rectangle(400,0,200,200), 0.33f);
-		pressedAnim.AddFrame(math::rectangle(200,0,200,200), 0.33f);
-		pressedAnim.AddFrame(math::rectangle(000,0,200,200), 0.33f);
+		pressedAnim.AddFrame(math::rectangle(0, 45, 190, 42), 0.33f);
+		pressedAnim.Loop() = false;
 
 		m_sprite = m_spriteSheet->Create();		
-		m_sprite->OnEnterFrame() += [&](void*, const render::spritesheet::animation_track& track){ if ( track.FrameNumber() == 3 ) { OutputDebugStringW( L"\nEnter!" ); } };
-		m_sprite->OnExitFrame() += [&](void*, const render::spritesheet::animation_track& track) { if ( track.IsLastFrame() ) { OutputDebugStringW( L"\nExit!" ); } };
-		m_sprite->OnAnimationFinished() += [&](void*, const render::spritesheet::animation_track& ) { OutputDebugStringW( L"\nDone!" ); };
+		//m_sprite->OnEnterFrame() += [&](void*, const render::spritesheet::animation_track& track){ if ( track.FrameNumber() == 3 ) { OutputDebugStringW( L"\nEnter!" ); } };
+		//m_sprite->OnExitFrame() += [&](void*, const render::spritesheet::animation_track& track) { if ( track.IsLastFrame() ) { OutputDebugStringW( L"\nExit!" ); } };
+		//m_sprite->OnAnimationFinished() += [&](void*, const render::spritesheet::animation_track& ) { OutputDebugStringW( L"\nDone!" ); };
 		m_sprite->Play(defaultAnimID);
 
 		/*auto& anim = m_spriteSheet->CreateAnimation(L"default");
@@ -151,15 +123,6 @@ namespace ui
 		anim.AddFrame(math::rectangle(800,0,200,200), 0.1f);*/
 
 		//m_spriteSheet->Play(L"default");
-	}
-
-
-
-	void button::SetState(eState state)
-	{
-		(void)state;
-	//	auto& anim = m_spriteSheet->CreateAnimation(L"Test");
-//		anim.AddFrame(math::rectangle(0,0,160,160), -1.f);
 	}
 
 }

@@ -1,4 +1,5 @@
-	#include "scrollbar.h"
+#include "scrollbar.h"
+#include "engine.render/spritesheet.h"
 
 namespace ui
 {
@@ -9,6 +10,19 @@ namespace ui
 		, m_type(Vertical)
 		, m_visible(false)
 	{
+	}
+
+	void scrollbar::Load(const std::wstring& path)
+	{
+		m_spriteSheet = std::unique_ptr<render::spritesheet>(new render::spritesheet(m_core->GetDevice(), path));
+
+		size_t defaultAnimID;
+		auto& cursor = m_spriteSheet->CreateAnimation(L"default", defaultAnimID);
+		cursor.AddFrame(math::rectangle(338, 189, 48, 50), 0.f);
+
+		m_sprite = m_spriteSheet->Create();
+		m_sprite->Play(defaultAnimID);
+
 	}
 
 	bool scrollbar::HandleInput(float, const input::input_state& inputState)
@@ -82,8 +96,12 @@ namespace ui
 		math::Clamp(edge,  minimal, maximal);
 	}
 
-	void scrollbar::Update(float)
+	void scrollbar::Update(float deltaTime)
 	{
+		if (m_sprite)
+		{
+			m_sprite->Update(deltaTime);
+		}
 	}
 
 	void scrollbar::InternalDraw(const render::camera& camera)
@@ -91,8 +109,20 @@ namespace ui
 		UNREFERENCED(camera);
 
 		auto& textureView = *m_core->GetWhiteTexture()->GetView();
-		m_spriteBatch->Draw(textureView, m_rectangle, nullptr, m_backgroundColor);
-		m_spriteBatch->Draw(textureView, m_cursor, nullptr, m_foregroundColor);
+		m_spriteBatch->Draw(textureView, m_rectangle, nullptr, m_backgroundColor);	
+	
+		if (m_sprite)
+		{
+			m_spriteBatch->End();
+			{
+				m_sprite->Draw(m_cursor.Position(), m_foregroundColor, 0.f, math::vector2::Zero, math::rectangle::Zero, m_cursor.Size());
+			}
+			m_spriteBatch->Begin(DirectX::SpriteSortMode_Deferred);
+		}
+		else
+		{
+			m_spriteBatch->Draw(textureView, m_cursor, nullptr, m_foregroundColor);
+		}
 	}
 
 	void scrollbar::Refresh()
@@ -100,7 +130,7 @@ namespace ui
 		m_cursor = m_rectangle;
 		
 		if ( m_type == Vertical )
-			m_cursor.Height() = m_rectangle.Height() * 0.1f;
+			m_cursor.Height() = m_rectangle.Height() * 0.15f;
 		else
 			m_cursor.Width() = m_rectangle.Width() * 0.1f;
 
