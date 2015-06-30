@@ -61,11 +61,29 @@ namespace samples
 		auto tex3 = std::shared_ptr<render::texture>( new render::texture(&m_device, game::GetContentPath(L"\\content\\textures\\menus\\molecule.dds") ) );
 
 		// Configure 3D Menu
-		m_menu3d = std::unique_ptr<ui::menu_3d>(new ui::menu_3d(&m_device));
-		m_menu3d->Root()->AddChild( math::matrix::CreateTranslation(10.f, 0.f, 0.f), tex0 );
-		m_menu3d->Root()->AddChild( math::matrix::CreateTranslation(-10.f, 0.f, 0.f), tex1  );
-		m_menu3d->Root()->AddChild( math::matrix::CreateTranslation(0.f, 0.f, 10.f), tex2 );
-		m_menu3d->Root()->AddChild( math::matrix::CreateTranslation(0.f, 0.f, -10.f), tex3  );
+		m_menu3d = std::make_unique<ui::menu_3d>(&m_device, m_fontLibrary->Get(L"title"));
+		
+		// Configure the 3D menu options
+		auto item0 = m_menu3d->Root()->AddChild( math::matrix::CreateTranslation(10.f, 0.f, 0.f), tex0, L"Credits" );
+		item0->OnPressed() += [&](void*, ui::menu_3d::item& i) { i.SetTitle(L"Credits Pressed!"); };
+		item0->OnReleased() += [&](void*, ui::menu_3d::item& i) { i.SetTitle(L"Credits"); };
+
+		auto item1 = m_menu3d->Root()->AddChild(math::matrix::CreateTranslation(-10.f, 0.f, 0.f), tex1, L"Video Settings");
+		item1->OnPressed() += [&](void*, ui::menu_3d::item& i) { i.SetTitle(L"Video Pressed!"); };
+		item1->OnReleased() += [&](void*, ui::menu_3d::item& i) { i.SetTitle(L"Video Settings"); };
+
+		auto item2 = m_menu3d->Root()->AddChild(math::matrix::CreateTranslation(0.f, 0.f, 10.f), tex2, L"Audio Settings");
+		item2->OnPressed() += [&](void*, ui::menu_3d::item& i) { i.SetTitle(L"Audio Pressed!"); };
+		item2->OnReleased() += [&](void*, ui::menu_3d::item& i) { i.SetTitle(L"Audio Settings"); };
+
+		auto item3 = m_menu3d->Root()->AddChild(math::matrix::CreateTranslation(0.f, 0.f, -10.f), tex3, L"New Game");
+		item3->OnPressed() += [&](void*, ui::menu_3d::item& i) { i.SetTitle(L"New Game Pressed!"); };
+		item3->OnReleased() += [&](void*, ui::menu_3d::item& i) { i.SetTitle(L"New Game"); };
+
+		auto label = m_container->Add<ui::label>();
+		label->SetText(L"Press Left/Right Arrows to Cycle the 3D Menu");
+		label->SetPosition(math::vector2(0.02f, 0.9f), ui::control::eUnit::Percent);
+		
 }
 
 	void menu3d::Update()
@@ -82,14 +100,14 @@ namespace samples
 
 	void menu3d::Update(float deltaTime)
 	{
+		m_menu3d->Update(m_camera, deltaTime, *m_inputState);
+
 		m_inputState->Update(deltaTime);
 		m_camera.Update(deltaTime);
 
 		m_container->HandleInput(deltaTime, *m_inputState);
 		m_container->Update(deltaTime);
 
-		m_menu3d->HandleInput(deltaTime, *m_inputState);
-		m_menu3d->Update(deltaTime);
 
 		m_cursor->Update(deltaTime);
 	}

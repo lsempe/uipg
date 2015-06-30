@@ -268,7 +268,7 @@ protected:
 
 		void Update(float deltaTime);
 
-		void Draw(const math::vector2& position, render::color color = render::color::WHITE, float rotation = 0.f, const math::vector2& origin = math::vector2::Zero, const math::rectangle clipping = math::rectangle::Zero);
+		void Draw(const math::vector2& position, render::color color = render::color::WHITE, float rotation = 0.f, const math::vector2& origin = math::vector2::Zero, const math::rectangle clipping = math::rectangle::Zero, const math::vector2& size = math::vector2::Zero);
 
 		void Play(size_t animationID, unsigned int startFrame=0);
 		

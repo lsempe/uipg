@@ -407,6 +407,12 @@ vector3::vector3(const DirectX::XMVECTOR& v2)
 	z() = DirectX::XMVectorGetZ(v2);
 }
 
+vector3::vector3(const vector2& source, float z)
+{ 
+	v[0] = source.x(), v[1] = source.y(), v[2] = z; 
+}
+
+
 vector3::~vector3()
 {}
 
@@ -954,3 +960,4 @@ vector2 vector2::One = vector2(1.f,1.f);
 vector2 vector2::Zero = vector2(0.f,0.f);
 vector2 vector2::UnitX = vector2(1.f,0.f);
 vector2 vector2::UnitY = vector2(0.f,1.f);
+

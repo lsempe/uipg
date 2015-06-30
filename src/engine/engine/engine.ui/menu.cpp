@@ -82,7 +82,12 @@ namespace ui
 				if ( m_wrapAround && (m_currentItemIndex == SIZE_MAX || m_currentItemIndex == 0 ))
 					m_currentItemIndex = m_items.size() - 1;
 				else
-					--m_currentItemIndex;
+				{
+					if (m_currentItemIndex > 0)
+					{
+						--m_currentItemIndex;
+					}
+				}					
 
 				auto selectedControl = m_items[m_currentItemIndex]->Control();
 				m_onSelection.Invoke(this, *selectedControl);
@@ -95,8 +100,17 @@ namespace ui
 				if ( m_currentItemIndex != SIZE_MAX )
 				{
 					++m_currentItemIndex;
-					if ( m_wrapAround && m_currentItemIndex >= m_items.size() )
-						m_currentItemIndex = 0 ;
+					if (m_wrapAround && m_currentItemIndex >= m_items.size())
+					{
+						m_currentItemIndex = 0;
+					}
+					else
+					{
+						if (m_items.size() > 0)
+						{
+							m_currentItemIndex = m_items.size() - 1;
+						}
+					}
 
 					auto selectedControl = m_items[m_currentItemIndex]->Control();
 					m_onSelection.Invoke(this, *selectedControl);

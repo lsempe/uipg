@@ -2,6 +2,12 @@
 
 #include "control.h"
 
+namespace render
+{
+	class spritesheet;
+	class sprite;
+}
+
 namespace ui
 {
 
@@ -34,6 +40,8 @@ public:
 	bool Visible() const { return m_visible; }
 	bool& Visible() { return m_visible; }
 
+	void Load(const std::wstring& path);
+
 protected:
 
 	enum eState
@@ -48,6 +56,9 @@ protected:
 	float m_delta;
 	int m_lastMouseWheelValue;
 	bool m_visible;
+
+	std::unique_ptr<render::spritesheet> m_spriteSheet;
+	std::shared_ptr<render::sprite> m_sprite;
 
 };
 

@@ -1,4 +1,5 @@
 #include "listbox.h"
+#include "engine.render/spritesheet.h"
 
 namespace ui
 {
@@ -20,8 +21,8 @@ namespace ui
 	{
 		auto backRect = m_rectangle;
 
-		m_scrollBar.SetBackgroundColor( render::color::LIGHTGRAY );
-		m_scrollBar.SetForegroundColor( render::color::GREEN );
+		m_scrollBar.SetBackgroundColor( render::color::SLATEGRAY );
+		m_scrollBar.SetForegroundColor( render::color::WHITE );
 
 		if ( m_items.size() > 1 )
 		{

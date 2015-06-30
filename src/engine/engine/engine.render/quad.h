@@ -8,6 +8,7 @@
 #include "texture.h"
 #include "CommonStates.h"
 #include "renderstatehelper.h"
+#include "engine.math/intersection.h"
 
 namespace 
 {
@@ -46,6 +47,7 @@ public:
 		, m_blendState(render::eBlendState::NonPremultiplied)
 		, m_depthStencilState(eDepthStencilState::Default)
 		, m_transform(math::matrix::Identity)
+		, m_latestTransform(math::matrix::Identity)
 	{
 		m_vertexBuffer = std::unique_ptr<buffer>( new buffer(device) );
 		m_indexBuffer = std::unique_ptr<buffer>( new buffer(device) );
@@ -104,6 +106,40 @@ public:
 		m_inputLayout->Release();
 	}
 
+	bool RayIntersect(const math::vector3& start, const math::vector3& end, math::vector3& outContactPoint)
+	{
+		math::ray r;
+		r.position = start;
+		r.direction = (end - start);
+		r.length = r.direction.Length();
+		r.direction.Normalize();
+		math::vector3 intersectionPoint;
+
+		math::vector3 faceNormal(0, 0, -1);
+		math::vector3 right = faceNormal.Cross(math::vector3::UnitY);
+		math::vector3 up = faceNormal.Cross(right);
+
+		const math::vector3 vertices[] =
+		{
+			right + up,
+			right - up,
+			-right - up,
+			-right + up
+		};
+
+		math::vector3 p0 = vertices[0] * m_latestTransform;
+		math::vector3 p1 = vertices[1] * m_latestTransform;
+		math::vector3 p2 = vertices[2] * m_latestTransform;
+		math::vector3 p3 = vertices[3] * m_latestTransform;
+		
+		return (math::intersection::RayQuad(r, p0, p1, p2, p3, intersectionPoint));
+
+
+
+
+
+	}
+
 	void Draw(const math::matrix& world, const math::matrix& view, const math::matrix& projection, std::shared_ptr<texture> texture = nullptr, const render::color& color = render::color::WHITE)
 	{	
 		auto context = m_device->GetImmediateContext();
@@ -141,6 +177,8 @@ public:
 												transform * m_transform, 
 												color
 											};
+
+		m_latestTransform = m_transform * transform;
 
 		m_constantBuffer->Data(eBufferUsage::Constant, &constantBufferData, sizeof(constantBufferData));
 		ID3D11Buffer* vertexConstants = m_constantBuffer->GetBuffer();
@@ -197,6 +235,8 @@ public:
 	math::vector3& Pivot() { return m_pivot; }
 
 private:
+
+	math::matrix m_latestTransform;
 
 	math::matrix m_transform;
 	math::vector3 m_pivot;

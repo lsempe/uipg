@@ -101,6 +101,9 @@ public:
 	// Scale the vector uniformally by 1
 	void Scale(float s);	
 
+	friend vector2 operator * (float lhs, const vector2& rhs);
+	friend vector2 operator / (float lhs, const vector2& rhs);
+
 	static vector4 Transform(const vector2& v, const matrix& m);
 	static vector4 Transform(const vector3& v, const matrix& m);
 	static vector4 Transform(const vector4& v, const matrix& m);
@@ -126,6 +129,7 @@ public:
 	vector3(unsigned int _x, unsigned int _y, unsigned int _z) { v[0] = (float)_x; v[1] = (float)_y; v[2] = (float)_z; }
 	vector3(float _x, float _y, float _z) { v[0] = _x; v[1] = _y; v[2] = _z; }
 	explicit vector3(const DirectX::XMVECTOR& v);
+	vector3(const vector2& source, float z);
 	vector3(vector3&& r)
 	{
 		*this = r;
@@ -215,6 +219,9 @@ public:
 
 	static float AngleBetweenVectors(const vector3& v0, const vector3& v1);
 
+	friend vector3 operator * (float lhs, const vector3& rhs);
+	friend vector3 operator / (float lhs, const vector3& rhs);
+
 	static vector3 One;
 	static vector3 Zero;
 	static vector3 UnitX;
@@ -301,6 +308,9 @@ public:
 	// Scale the vector uniformally by 1
 	void Scale(float s);
 
+	friend vector2 operator * (float lhs, const vector2& rhs);
+	friend vector2 operator / (float lhs, const vector2& rhs);
+
 	static vector2 Transform(const vector2& v, const math::matrix& m);
 
 	static vector2 One;
@@ -309,5 +319,35 @@ public:
 	static vector2 UnitY;
 
 };
+
+inline vector4 operator * (float lhs, const vector4& rhs)
+{
+	return rhs * lhs;
+}
+
+inline vector4 operator / (float lhs, const vector4& rhs)
+{
+	return rhs / lhs;
+}
+
+inline vector3 operator * (float lhs, const vector3& rhs)
+{
+	return rhs * lhs;
+}
+
+inline vector3 operator / (float lhs, const vector3& rhs)
+{
+	return rhs / lhs;
+}
+
+inline vector2 operator * (float lhs, const vector2& rhs)
+{
+	return rhs * lhs;
+}
+
+inline vector2 operator / (float lhs, const vector2& rhs)
+{
+	return rhs / lhs;
+}
 
 } // math

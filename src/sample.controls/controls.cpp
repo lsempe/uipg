@@ -32,7 +32,8 @@ namespace samples
 		m_camera = render::camera(viewport);
 		m_camera.LookAt(math::vector3::Zero, math::vector3::UnitZ, math::vector3::UnitY);
 
-		m_cursor = std::unique_ptr<ui::input_cursor>(new ui::input_cursor(m_core, nullptr, nullptr, game::GetContentPath(L"\\content\\sprites\\cursor.dds")));
+		m_cursor = std::unique_ptr<ui::input_cursor>(new ui::input_cursor(m_core, nullptr, nullptr, L""));
+		m_cursor->Load(game::GetContentPath(L"\\content\\sprites\\UIpackSheet_transparent.dds").c_str());
 
 		auto deviceContext = m_device.GetImmediateContext();
 
@@ -44,33 +45,40 @@ namespace samples
 		m_container = std::unique_ptr<ui::container>(new ui::container(m_core, m_fontLibrary->Get(L"title")));
 		m_container->SetViewport(viewport);
 		
-		/// Enabled button
+		/// Enabled button 
 		auto buttonEnabled = m_container->Add<ui::button>();
+		buttonEnabled->ShowText() = true;
+		buttonEnabled->SetFont(m_fontLibrary->Get(L"title"));
 		buttonEnabled->SetPosition(math::vector2(10.f,60.f), ui::control::Pixels);
-		buttonEnabled->SetSize(math::vector2(128.f, 48.f), ui::control::Pixels);		
-		buttonEnabled->SetText(L"Button");
+		buttonEnabled->SetSize(math::vector2(150.f, 48.f), ui::control::Pixels);		
+		buttonEnabled->SetText(L"Button 1");
+		buttonEnabled->Load(game::GetContentPath(L"\\content\\sprites\\redSheet.dds").c_str());
 
 		/// Disabled button
 		auto buttonDisabled = m_container->Add<ui::button>();
 		buttonDisabled->SetPosition(math::vector2(buttonEnabled->Rectangle().Right() + 10.f,60.f), ui::control::Pixels);
-		buttonDisabled->SetSize(math::vector2(128.f, 48.f), ui::control::Pixels);		
-		buttonDisabled->SetText(L"Button");
-		buttonDisabled->SetState(ui::button::Disabled);		
-		
+		buttonDisabled->SetSize(math::vector2(150.f, 48.f), ui::control::Pixels);		
+		buttonDisabled->SetText(L"Button 2");
+		buttonDisabled->ShowText() = true;
+		buttonDisabled->SetFont(m_fontLibrary->Get(L"title"));
+		//buttonDisabled->SetState(ui::button::Disabled);		
+		buttonDisabled->Load(game::GetContentPath(L"\\content\\sprites\\redSheet.dds").c_str());
+
 		/// Title label
 		auto label = m_container->Add<ui::label>();
 		label->SetFont( m_fontLibrary->Get(L"title") );
 		label->SetPosition(math::vector2(0.f,0.f), ui::control::Percent);
-		label->SetSize(math::vector2(1.f, 0.2f), ui::control::Percent);
+		label->SetSize(math::vector2(1.f, 0.25f), ui::control::Percent);
 		label->AutoSize() = true;
 		label->SetText(L"UIPG Controls");
-		label->SetAlignment(static_cast<ui::align::eAlignmentFlags>( ui::align::Center | ui::align::Middle ));
-		label->ShowBackground() = false;	
+		label->SetAlignment(static_cast<ui::align::eAlignmentFlags>( ui::align::Center | ui::align::Top));
+		label->ShowBackground() = false;
 		
 		/// Slider
 		auto slider = m_container->Add<ui::slider>();
-		slider->SetPosition(math::vector2(10.f,150.f), ui::control::Pixels);
-		slider->SetSize(math::vector2(128.f, 48.f), ui::control::Pixels);		
+		slider->SetPosition(math::vector2(10.f,120.f), ui::control::Pixels);
+		slider->SetSize(math::vector2(128.f, 32.f), ui::control::Pixels);		
+		slider->Load(game::GetContentPath(L"\\content\\sprites\\UIpackSheet_transparent.dds").c_str());
 
 		/// Textbox
 		auto textbox = m_container->Add<ui::textbox>();
@@ -83,6 +91,7 @@ namespace samples
 		m_progressBar->SetPosition(math::vector2(10.f,300.f), ui::control::Pixels);
 		m_progressBar->SetSize(math::vector2(256.f, 48.f), ui::control::Pixels);
 		m_progressBar->SetForegroundColor(render::color::ORANGERED);
+		m_progressBar->Load(game::GetContentPath(L"\\content\\sprites\\UIpackSheet_transparent.dds").c_str());
 		
 		/// Dropdown
 		auto dropdown = m_container->Add<ui::dropdown2>();
@@ -129,14 +138,13 @@ namespace samples
 
 		auto itemSlider = menu->CreateItem<ui::slider>(m_core, m_fontLibrary->Get(L"title"), m_spriteBatch);
 		itemSlider->SetSize(math::vector2(300.f, itemLabel2->Font()->GetLineSpacing()), ui::control::Pixels);		
-		//itemSlider->OnMousePressed() += [&](void*, ui::control& c) { c.Alpha() = 0.45f; };
-		//itemSlider->OnMouseReleased() += [&](void*, ui::control& c) { c.Alpha() = 1.f; };
+		itemSlider->Load(game::GetContentPath(L"\\content\\sprites\\UIpackSheet_transparent.dds").c_str());
+		itemSlider->SetBackgroundColor(render::color::SLATEGRAY);
 
 		// Label that displays which listbox items are selected.
 		m_listBoxSelection = m_container->Add<ui::label>();
 		m_listBoxSelection->SetFont( m_fontLibrary->Get(L"title") );
-		m_listBoxSelection->SetPosition(math::vector2(400.f,320.f), ui::control::Pixels);
-		//m_listBoxSelection->SetSize(math::vector2(1.f, 0.1f), ui::control::Percent);
+		m_listBoxSelection->SetPosition(math::vector2(400.f,520.f), ui::control::Pixels);
 		m_listBoxSelection->AutoSize() = true;
 		m_listBoxSelection->SetText(L"");
 		m_listBoxSelection->SetAlignment(static_cast<ui::align::eAlignmentFlags>( ui::align::Left | ui::align::Bottom ));
@@ -144,6 +152,7 @@ namespace samples
 
 		/// Listbox
 		auto listBox = m_container->Add<ui::listbox>();
+		listBox->ScrollBar().Load(game::GetContentPath(L"\\content\\sprites\\redSheet.dds").c_str());
 		listBox->SetPosition(math::vector2(400.f, 360.f), ui::control::Pixels);
 		listBox->SetSize(math::vector2(256.f, listBox->Font()->GetLineSpacing() * 3.1f), ui::control::Pixels );
 		listBox->OnItemSelected() += [&](void* owner, ui::listbox::listboxitem& )
@@ -280,8 +289,9 @@ namespace samples
 		m_inputState->Update(deltaTime);
 
 		m_container->HandleInput(deltaTime, *m_inputState);
+		m_cursor->HandleInput(deltaTime, *m_inputState);
 
-		m_cursor->Update(deltaTime);
+		m_cursor->Update(deltaTime);		
 		m_container->Update(deltaTime);
 
 		// Oscillate the progress bar

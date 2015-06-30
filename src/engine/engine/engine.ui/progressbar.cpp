@@ -2,6 +2,7 @@
 #include "engine.ui/control.h"
 #include "engine.ui/helpers.h"
 #include "engine.render/texture.h"
+#include "engine.render/spritesheet.h"
 
 namespace ui
 {
@@ -11,6 +12,19 @@ namespace ui
 		, m_maximum(100.f)
 		, m_texture(nullptr)
 	{
+	}
+
+	void progress_bar::Load(const std::wstring& path)
+	{
+		m_spriteSheet = std::unique_ptr<render::spritesheet>(new render::spritesheet(m_core->GetDevice(), path));
+
+		size_t defaultAnimID;
+		auto& defaultAnim = m_spriteSheet->CreateAnimation(L"default", defaultAnimID);
+		defaultAnim.AddFrame(math::rectangle(252, 290, 16, 12), 0.f);
+		defaultAnim.Loop() = false;
+
+		m_sprite = m_spriteSheet->Create();
+		m_sprite->Play(defaultAnimID);
 	}
 
 	void progress_bar::SetMaximum(float maximum)
@@ -44,6 +58,11 @@ namespace ui
 		math::Clamp(m_value, 0.f, m_maximum);
 	}
 
+	void progress_bar::Update(float deltaTime)
+	{
+		m_sprite->Update(deltaTime);
+	}
+
 	void progress_bar::InternalDraw(const render::camera& camera)
 	{
 		UNREFERENCED(camera);
@@ -54,7 +73,16 @@ namespace ui
 		m_spriteBatch->Draw(*m_core->GetWhiteTexture()->GetView(), m_rectangle, nullptr, m_backgroundColor);
 
 		math::rectangle progressRect = m_rectangle;
-		progressRect.Width() = GetRatio() * m_rectangle.Width();
-		m_spriteBatch->Draw(*m_core->GetWhiteTexture()->GetView(), progressRect, nullptr, m_foregroundColor);
+		progressRect.Width() = GetRatio() * m_rectangle.Size().x();
+
+		m_spriteBatch->End();
+		{
+			if (m_sprite)
+			{
+				m_sprite->Draw(progressRect.Position(), m_foregroundColor, 0.f, math::vector2::Zero, math::rectangle::Zero, progressRect.Size());
+			}
+		}
+		m_spriteBatch->Begin(DirectX::SpriteSortMode_BackToFront);
+
 	}
 }

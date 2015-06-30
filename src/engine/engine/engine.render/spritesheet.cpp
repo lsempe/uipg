@@ -23,18 +23,25 @@ namespace render
 		}
 	}
 
-	void sprite::Draw(const math::vector2& position, render::color color, float rotation, const math::vector2& origin, const math::rectangle clipping)
+	void sprite::Draw(const math::vector2& position, render::color color, float rotation, const math::vector2& origin, const math::rectangle clipping, const math::vector2& size)
 	{
 		if ( m_currentAnimation == nullptr )
 			return;
 
 		auto& frame = m_currentAnimation->CurrentFrame();
 									
-		auto source = frame.Region();
+		auto source = frame.Region();		
 		auto destination = math::rectangle(position.x(), position.y(), source.Width(), source.Height());
 
+
 		Clip(position, source, destination, frame.Region().Size(), clipping);
-				
+
+		if (size.x() > 0.f)
+			destination.Width() = size.x();
+
+		if (size.y() > 0.f)
+			destination.Height() = size.y();
+
 		auto device = m_spriteSheet.GetDevice();
 		DirectX::CommonStates states(device->GetDevice());
 

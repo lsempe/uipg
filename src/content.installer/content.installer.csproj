@@ -65,6 +65,12 @@
     <None Include="content\fonts\play.font">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="content\sprites\redSheet.dds">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="content\sprites\UIpackSheet_transparent.dds">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="content\sprites\analog\arrow.dds">
